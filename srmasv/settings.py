@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
-import django_heroku
-import dj_database_url
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = '8dnjt#rwfj($r$+)%_!l0q!sx#=@g05&aiz=a*)%b4l01((3v^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -50,7 +47,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'srmasv.urls'
@@ -78,7 +74,14 @@ WSGI_APPLICATION = 'srmasv.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600)
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'srmasv',
+        'USER': 'akashpurandare',
+        'PASSWORD': 'akashp',
+        'HOST': 'localhost',
+        'PORT': 5432,
+    }
 }
 
 
@@ -123,10 +126,6 @@ STATIC_ROOT = os.path.join(BASE_DIR + "staticfiles")
 STATICFILES_DIRS = [
     #os.path.join(BASE_DIR, 'static'),
 ]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedMainfestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
-
-django_heroku.settings(locals())
