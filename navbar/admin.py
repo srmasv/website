@@ -6,3 +6,4 @@ from . import models
 admin.site.register(models.NavItem)
 admin.site.register(models.HomeText)
 admin.site.register(models.CarouselItem)
+admin.site.register(models.JourneyText)

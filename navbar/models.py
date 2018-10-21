@@ -30,8 +30,22 @@ class HomeText(models.Model):
 class CarouselItem(models.Model):
     title = models.CharField(max_length=40)
     subtitle = models.CharField(max_length=255)
-    image = models.ImageField(upload_to="media/images/", width_field=800, height_field=400)
+    image = models.ImageField(upload_to="images/")
 
     class Meta:
         verbose_name = "Carousel Item"
         verbose_name_plural = "Carousel Items"
+
+class JourneyText(models.Model):
+    heading = models.CharField(max_length=20)
+    title =  models.CharField(max_length=40)
+    body = models.TextField()
+    image = models.ImageField(upload_to="images/")
+
+    class Meta:
+        verbose_name = "Journey Text"
+        verbose_name_plural = verbose_name
+
+    def clean(self):
+        if JourneyText.objects.exists() and not self.pk:
+            raise ValidationError("Only one instance of HomeText can be made.")

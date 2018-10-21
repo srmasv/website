@@ -2,20 +2,20 @@
 
 {% block content %}
 <div class="container-fluid bg-primary pt-4 pt-sm-4 pt-md-4 pt-lg-4 pt-xl-4 pb-5 pb-sm-5 pb-md-5 pb-lg-5 pb-xl-5">
-    <div class="row mx-auto w-75">
+    <div class="mx-auto col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-8">
         <h1 class="text-white mx-auto font-weight-bold text-center">{{hometext.header}}</h1>
         <h5 class="text-light mx-auto font-weight-light text-center">{{hometext.body}}</h5>
         <h6 class="text-light mx-auto font-weight-bold text-center pt-5 pt-sm-5 pt-md-5 pt-lg-5 pt-xl-5 pb-5 pb-sm-5 pb-md-5 pb-lg-5 pb-xl-5">{{hometext.subtitle}}</h6>
     </div>
 </div>
-<div class="container-fluid bg-primary pt-5 pt-sm-5 pt-md-5 pt-lg-5 pt-xl-5 pb-5 pb-sm-5 pb-md-5 pb-lg-5 pb-xl-5"></div>
-<div class="container-fluid bg-primary pt-4 pt-sm-4 pt-md-4 pt-lg-4 pt-xl-4 pb-5 pb-sm-5 pb-md-5 pb-lg-5 pb-xl-5"></div>
-<div class="container w-75 px-0" style="box-shadow: 0 0 40px -5px black;">
-    <div id="carousel" class="carousel slide" data-ride="carousel" style="margin-top:-25%;">
+<div class="container-fluid bg-primary pt-2 pt-sm-2 pt-md-4 pt-lg-4 pt-xl-4 pb-3 pb-sm-4 pb-md-4 pb-lg-5 pb-xl-5"></div>
+<div class="container-fluid bg-primary pt-2 pt-sm-2 pt-md-4 pt-lg-4 pt-xl-4 pb-3 pb-sm-4 pb-md-4 pb-lg-4 pb-xl-4"></div>
+<div class="container-fluid px-0 col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-8" style="box-shadow: 0 0 40px -5px black;">
+    <div id="carousel" class="carousel slide h-auto" data-ride="carousel" style="margin-top:-25%;">
         <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -51,5 +51,16 @@
     </div>
 </div>
 <div class="container bg-white" style="margin-top:10%;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
+            <div class="bg-white w-100 ml-0 mt-2 pl-0" style="height:100%;background: url('{{journeytext.image.url }}');background-repeat: no-repeat;background-size: cover;">
+                <h1 class="text-white font-weight-bold text-wrap col-12 pb-5" style="padding-top:15%;">{{journeytext.heading}}</h1>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-6 pt-5">
+            <h2 class="font-weight-normal">{{journeytext.title}}</h2>
+            <p class="text-justify">{{journeytext.body}}</p>
+        </div>
+    </div>
 </div>
 {% endblock %}
