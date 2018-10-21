@@ -1,0 +1,37 @@
+{% extends 'header.html' %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-0 mb-sm-0 mb-md-0 mb-lg-0 mb-xl-0">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav ml-auto">
+            {% for navitem in navitems %}
+            <li class="nav-item mr-5 mr-sm-5 mr-md-5 mr-lg-5 mr-xl-5">
+                <a class="nav-link text-light" href="{% url navitem.url_name %}">{{navitem.text}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
+
+{% if breadcrumbs.0 %}
+{{breadcrumbs}}
+<nav aria-label="breadcrumb" class="bg-light">
+    <ol class="breadcrumb">
+        {% for crumb in breadcrumbs %}
+        {% if forloop.last %}
+        <li class="breadcrumb-item active" aria-current="page">{{crumb}}</li>
+        {% else %}
+        <li class="breadcrumb-item">{{crumb}}</li>
+        {% endif %}
+        {% endfor %}
+    </ol>
+</nav>
+{% else %}
+<hr class="bg-light mt-0 mt-sm-0 mt-md-0 mt-lg-0 mt-xl-0 mb-0 mb-sm-0 mb-md-0 mb-lg-0 mb-xl-0" />
+{% endif %}
+{% endblock %}
