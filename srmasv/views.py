@@ -2,7 +2,7 @@ from django.shortcuts import render
 from navbar.models import NavItem
 
 def get_all_navitems():
-    return NavItem.objects.all()
+    return NavItem.objects.order_by('position')
 
 def get_breadcrumbs(request):
     if(request.resolver_match.url_name=="homepage"):
