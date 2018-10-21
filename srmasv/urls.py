@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include(navbar.urls), name="homepage"),
     path('', views.navbar, name="blogs"),
     path('', views.navbar, name="about"),
+    path('', views.navbar, name="team"),
     path('', views.navbar, name="projects"),
     path('', views.navbar, name="sponsors"),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
