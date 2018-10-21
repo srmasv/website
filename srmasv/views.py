@@ -7,7 +7,11 @@ def get_all_navitems():
 def get_breadcrumbs(request):
     if(request.resolver_match.url_name=="homepage"):
         return None
-    return request.get_full_path().split("/")[1:]
+    url = request.get_full_path()
+    if("#" in url):
+        pos = url.find("#")
+        url = url[pos:]
+    return url.split("/")[1:]
 
 def navbar(request):
     params = {"navitems": get_all_navitems(), "breadcrumbs": get_breadcrumbs(request)}
