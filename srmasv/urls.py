@@ -30,4 +30,4 @@ urlpatterns = [
     path('', views.navbar, name="team"),
     path('', views.navbar, name="projects"),
     path('', views.navbar, name="sponsors"),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
