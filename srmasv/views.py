@@ -10,7 +10,7 @@ def get_breadcrumbs(request):
     url = request.get_full_path()
     if("#" in url):
         pos = url.find("#")
-        url = url[pos:]
+        url = url[pos-1:]
     return url.split("/")[1:]
 
 def navbar(request):
