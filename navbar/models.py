@@ -56,7 +56,7 @@ class CarouselItem(models.Model):
             new_image = image.resize((800, 400))
             new_image.save(filename)
         elif os.path.splitext(filename)[1]==".mp4":
-            size = subprocess.check_output("ffprobe" + " -v error -select_streams v:0 -show_entries\
+            size = subprocess.check_output(os.path.join(settings.BASE_DIR, "ffprobe") + " -v error -select_streams v:0 -show_entries\
              stream=width,height -of csv=p=0 %s" % filename, shell=True).decode().strip().split(",")
             if size!=["800","400"]:
                 self.delete()
