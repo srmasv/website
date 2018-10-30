@@ -37,8 +37,8 @@ class HomeText(models.Model):
 class CarouselItem(models.Model):
     title = models.CharField(max_length=40, blank=True)
     subtitle = models.CharField(max_length=255, blank=True)
-    item = models.FileField(upload_to="carousel/", help_text="If you are uploading a photo, it must be a png or jpg. If you are uploading a video, it must be 800x400 and in mp4 format.")
-    is_photo = models.BooleanField(default=False, editable=False)
+    item = models.FileField(upload_to="carousel/", help_text="For standards of this website, if you are uploading a photo/video, it must be 800x400 and in jpg,png,jpeg/mp4 format respectively. PLEASE FOLLOW THIS GUIDELINE VERY CAREFULLY.")
+    is_photo = models.BooleanField(default=False, help_text="Please specify if this is a photo or not.")
 
     def __str__(self):
         return str(os.path.basename(self.item.name))
@@ -46,22 +46,6 @@ class CarouselItem(models.Model):
     class Meta:
         verbose_name = "Carousel Item"
         verbose_name_plural = "Carousel Items"
-
-    def save(self, *args, **kwargs):
-        self.is_photo = os.path.splitext(self.item.name)[1] in [".jpg", ".png", ".jpeg"]
-        super(CarouselItem, self).save(*args, **kwargs)
-        filename = str(self.item.file)
-        if os.path.splitext(filename)[1] in [".jpg", ".png", ".jpeg"]:
-            image = Image.open(filename, "r")
-            new_image = image.resize((800, 400))
-            new_image.save(filename)
-        elif os.path.splitext(filename)[1]==".mp4":
-            size = subprocess.check_output(os.path.join(settings.BASE_DIR, "ffprobe") + " -v error -select_streams v:0 -show_entries\
-             stream=width,height -of csv=p=0 %s" % filename, shell=True).decode().strip().split(",")
-            if size!=["800","400"]:
-                self.delete()
-                raise ValidationError("The video is not 800x400 in size. Upload some other video.")
-
 
 class JourneyText(models.Model):
     heading = models.CharField(max_length=20)
