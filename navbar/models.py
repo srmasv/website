@@ -37,11 +37,8 @@ class HomeText(models.Model):
 class CarouselItem(models.Model):
     title = models.CharField(max_length=40, blank=True)
     subtitle = models.CharField(max_length=255, blank=True)
-    item = models.CharField(max_length=255, help_text="File URL. For standards of this website, if you are uploading a photo/video, it must be 800x400 and in jpg,png,jpeg/mp4 format respectively. PLEASE FOLLOW THIS GUIDELINE VERY CAREFULLY.")
+    item = models.CharField(max_length=255, help_text="File name. For standards of this website, if you are uploading a photo/video, it must be 800x400 and in jpg,png,jpeg/mp4 format respectively. PLEASE FOLLOW THIS GUIDELINE VERY CAREFULLY.")
     is_photo = models.BooleanField(default=False, help_text="Please specify if this is a photo or not.")
-
-    def get_url(self):
-        return ("https://s3.%s.amazonaws.com/%s/" % (settings.AWS_S3_REGION_NAME, settings.AWS_STORAGE_BUCKET_NAME) + self.item)
 
     def __str__(self):
         return self.get_url()
