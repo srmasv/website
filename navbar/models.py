@@ -41,7 +41,7 @@ class CarouselItem(models.Model):
     is_photo = models.BooleanField(default=False, help_text="Please specify if this is a photo or not.")
 
     def __str__(self):
-        return self.get_url()
+        return "carousel/" + self.item
 
     class Meta:
         verbose_name = "Carousel Item"
@@ -51,11 +51,11 @@ class JourneyText(models.Model):
     heading = models.CharField(max_length=20)
     title =  models.CharField(max_length=40)
     body = models.TextField()
-    image = models.ImageField(upload_to="images/")
+    image = models.CharField(max_length=255, help_text="File name")
     btn_text = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.heading
+        return "images/"+self.image
 
     class Meta:
         verbose_name = "Journey Text"
