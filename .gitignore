@@ -92,6 +92,7 @@ ipython_config.py
 
 # pyenv
 .python-version
+Pipfile.lock
 
 # celery beat schedule file
 celerybeat-schedule
