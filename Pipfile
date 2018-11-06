@@ -13,6 +13,8 @@ whitenoise = "*"
 "psycopg2-binary" = "*"
 pillow = "*"
 django-cleanup = "*"
+"django-s3direct" = "*"
+django-storages = "*"
 
 [dev-packages]
 

@@ -4,6 +4,7 @@ from django.forms import ValidationError
 from django.conf import settings
 from PIL import Image
 import os, subprocess
+from s3direct.fields import S3DirectField
 
 # Create your models here.
 class NavItem(models.Model):
@@ -37,11 +38,11 @@ class HomeText(models.Model):
 class CarouselItem(models.Model):
     title = models.CharField(max_length=40, blank=True)
     subtitle = models.CharField(max_length=255, blank=True)
-    item = models.FileField(upload_to="carousel/", help_text="For standards of this website, if you are uploading a photo/video, it must be 800x400 and in jpg,png,jpeg/mp4 format respectively. PLEASE FOLLOW THIS GUIDELINE VERY CAREFULLY.")
+    item = S3DirectField(dest="carousel", help_text="For standards of this website, if you are uploading a photo/video, it must be 800x400 and in jpg,png,jpeg/mp4 format respectively. PLEASE FOLLOW THIS GUIDELINE VERY CAREFULLY.")
     is_photo = models.BooleanField(default=False, help_text="Please specify if this is a photo or not.")
 
     def __str__(self):
-        return str(os.path.basename(self.item.name))
+        return os.path.basename(self.item)
 
     class Meta:
         verbose_name = "Carousel Item"
@@ -51,7 +52,7 @@ class JourneyText(models.Model):
     heading = models.CharField(max_length=20)
     title =  models.CharField(max_length=40)
     body = models.TextField()
-    image = models.ImageField(upload_to="images/")
+    image = S3DirectField(dest="media")
     btn_text = models.CharField(max_length=10)
 
     def __str__(self):

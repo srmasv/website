@@ -22,11 +22,11 @@
                 <div class="carousel-item {%if not forloop.counter0 %}active{% endif %}">
                     {% if not item.is_photo %}
                         <video class="d-block w-100 video-fluid" controls autoplay loop muted>
-                            <source src="{{ item.item.url }}" type="video/mp4" />
+                            <source src="{{ item.item }}" type="video/mp4" />
                         </video>
 
                     {% else %}
-                        <img class="d-block w-100" src="{{ item.item.url }}" alt="{{ item.title }}">
+                        <img class="d-block w-100" src="{{ item.item }}" alt="{{ item.title }}">
                     {% endif %}
                     <div class="carousel-caption d-none d-md-block">
                         <h5>{{ item.title }}</h5>
@@ -87,7 +87,7 @@
     <div class="row pt-5">
         <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 col-xl-1"></div>
         <div class="col-xs-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">
-            <div class="bg-white w-100 ml-0 mt-2 pl-0" style="height:100%;background: url('{{journeytext.image.url }}');background-repeat: no-repeat;background-size: cover;">
+            <div class="bg-white w-100 ml-0 mt-2 pl-0" style="height:100%;background: url('{{journeytext.image }}');background-repeat: no-repeat;background-size: cover;">
                 <div class="bg-primary w-75">
                     <h1 class="text-white font-weight-bold text-wrap col-12 mb-5 pb-3" style="margin-top:5%;">Recent Activities</h1>
                 </div>

@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_cleanup',
+    's3direct',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -122,12 +124,25 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+AWS_DEFAULT_ACL = 'public-read'
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+AWS_STORAGE_BUCKET_NAME = ''
+
+S3DIRECT_REGION = ''
+
+S3DIRECT_DESTINATIONS = {
+    'carousel': {
+        'key': 'media/carousel/',
+        'allowed': ['image/jpeg', 'image/png', 'video/mp4'],
+    },
+    'media': {
+        'key': 'media/',
+    }
+}
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
