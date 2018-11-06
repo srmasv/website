@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,6 +26,7 @@ import navbar.urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(navbar.urls), name="homepage"),
+    url(r'^s3direct/', include('s3direct.urls')),
     path('', views.navbar, name="blogs"),
     path('', views.navbar, name="about"),
     path('', views.navbar, name="team"),

@@ -15,7 +15,7 @@ def get_domains():
     return DomainText.objects.order_by("position")
 
 def get_carouselitems():
-    return CarouselItem.objects.order_by("-id")
+    return CarouselItem.objects.all().reverse()
 
 def home(request):
     params = {}
