@@ -121,16 +121,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
 AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 AWS_DEFAULT_ACL = 'public-read'
+AWS_LOCATION = 'static'
 
 S3DIRECT_REGION = AWS_S3_REGION_NAME
 
@@ -143,4 +140,10 @@ S3DIRECT_DESTINATIONS = {
         'key': 'media/',
     }
 }
-django_heroku.settings(locals())
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+django_heroku.settings(locals(), staticfiles=False)

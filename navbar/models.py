@@ -6,6 +6,10 @@ from PIL import Image
 import os, subprocess
 from s3direct.fields import S3DirectField
 
+#To scale videos using ffmpeg
+# ffmpeg -i input -vf "scale=w=1280:h=720:force_original_aspect_ratio=1,pad=1280:720:(ow-iw)/2:(oh-ih)/2" output
+
+
 # Create your models here.
 class NavItem(models.Model):
     text = models.CharField(max_length=10)
@@ -56,7 +60,7 @@ class JourneyText(models.Model):
     btn_text = models.CharField(max_length=10)
 
     def __str__(self):
-        return "images/"+self.image
+        return os.path.basename(self.image)
 
     class Meta:
         verbose_name = "Journey Text"

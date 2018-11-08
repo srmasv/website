@@ -25,7 +25,7 @@ import navbar.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(navbar.urls), name="homepage"),
+    path('', include(navbar.urls)),
     url(r'^s3direct/', include('s3direct.urls')),
     path('', views.navbar, name="blogs"),
     path('', views.navbar, name="about"),
