@@ -50,7 +50,7 @@
 <div class="container" id="journeytext-div">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <div class="bg-white w-100 ml-0 mt-2 pl-0 background-cover-photo" style="background-image: url('{{ journeytext.image }}');">
+            <div class="bg-white w-100 ml-0 mt-2 pl-0 background-cover-photo" style="background-image: url('{{ journeytext.image }}');height:100%;">
                 <div class="pt-2 w-50 gradient-primary-diag">
                     <h1 class="text-white font-weight-bold text-wrap col-12 mb-5 pb-3" style="margin-top:15%;">{{journeytext.heading}}</h1>
                 </div>
@@ -96,7 +96,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 row-flex row-nowrap bg-light mt-2">
-            <iframe id="recent" src="{% url 'recent' %}"></iframe>
+            <iframe id="recent" src="{% url 'recent' %}" style="border: 0;height:430px;"></iframe>
         </div>
     </div>
 </div>
