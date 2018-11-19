@@ -1,17 +1,19 @@
 {% extends 'navbar.html' %}
+{% load static %}
 
 {% block content %}
-<div class="container-fluid bg-primary pt-4 pt-sm-4 pt-md-4 pt-lg-4 pt-xl-4 pb-5 pb-sm-5 pb-md-5 pb-lg-5 pb-xl-5">
+<div class="container-fluid pt-4 pt-sm-4 pt-md-4 pt-lg-4 pt-xl-4 pb-5 pb-sm-5 pb-md-5 pb-lg-5 pb-xl-5 gradient-primary-half-1">
     <div class="mx-auto col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-8">
         <h1 class="text-white mx-auto font-weight-bold text-center">{{hometext.header}}</h1>
         <h5 class="text-light mx-auto font-weight-light text-center">{{hometext.body}}</h5>
         <h6 class="text-light mx-auto font-weight-bold text-center pt-5 pt-sm-5 pt-md-5 pt-lg-5 pt-xl-5 pb-5 pb-sm-5 pb-md-5 pb-lg-5 pb-xl-5">{{hometext.subtitle}}</h6>
     </div>
 </div>
-<div class="container-fluid bg-primary pt-2 pt-sm-2 pt-md-4 pt-lg-4 pt-xl-4 pb-3 pb-sm-4 pb-md-4 pb-lg-5 pb-xl-5"></div>
-<div class="container-fluid bg-primary pt-2 pt-sm-2 pt-md-4 pt-lg-4 pt-xl-4 pb-3 pb-sm-4 pb-md-4 pb-lg-4 pb-xl-4"></div>
-<div class="container-fluid px-0 col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-8" style="box-shadow: 0 0 40px -5px black;">
-    <div id="carousel" class="carousel slide h-auto" data-ride="carousel" style="margin-top:-25%;">
+<div class="container-fluid pt-2 pt-sm-2 pt-md-4 pt-lg-4 pt-xl-4 pb-3 pb-sm-4 pb-md-4 pb-lg-5 pb-xl-5 gradient-primary-half-2"></div>
+<div class="container-fluid pt-2 pt-sm-2 pt-md-4 pt-lg-4 pt-xl-4 pb-3 pb-sm-4 pb-md-4 pb-lg-5 pb-xl-5" id="background-carousel" style="background-image:url('{{ hometext.background }}');">
+</div>
+<div class="container-fluid px-0 col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-8" id="carousel-div">
+    <div id="carousel" class="carousel slide h-auto" data-ride="carousel">
         <ol class="carousel-indicators">
             {% for item in carouselitems %}
                 <li data-target="#carousel" data-slide-to="{{forloop.counter0}}" {% if not forloop.counter0 %}class="active"{% endif %}></li>
@@ -21,7 +23,7 @@
             {% for item in carouselitems %}
                 <div class="carousel-item {%if not forloop.counter0 %}active{% endif %}">
                     {% if not item.is_photo %}
-                        <video class="d-block w-100 video-fluid" controls autoplay loop muted>
+                        <video class="d-block w-100 video-fluid carousel-video" muted autoplay loop>
                             <source src="{{ item.item }}" type="video/mp4" />
                         </video>
 
@@ -45,11 +47,11 @@
         </a>
     </div>
 </div>
-<div class="container" style="margin-top:10%;">
+<div class="container" id="journeytext-div">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <div class="bg-white w-100 ml-0 mt-2 pl-0" style="height:100%;background: url('{{ journeytext.image }}');background-repeat: no-repeat;background-size: cover;">
-                <div class="bg-primary pt-2 w-50">
+            <div class="bg-white w-100 ml-0 mt-2 pl-0 background-cover-photo" style="background-image: url('{{ journeytext.image }}');">
+                <div class="pt-2 w-50 gradient-primary-diag">
                     <h1 class="text-white font-weight-bold text-wrap col-12 mb-5 pb-3" style="margin-top:15%;">{{journeytext.heading}}</h1>
                 </div>
             </div>
@@ -68,7 +70,7 @@
             <div class="container">
                 <div class="row mt-4 mb-2">
                     <div class="col-2">
-                        <div class="bg-primary text-center align-middle" style="width:3em;height:3em;padding-top:0.5em;border-radius:50%;">
+                        <div class="bg-primary text-center align-middle domain-icon">
                             <i class="fas {{domain.icon}} fa-lg text-white align-bottom"></i>
                         </div>
                     </div>
@@ -83,18 +85,31 @@
     {% endfor %}
     </div>
 </div>
-<div class="container-fluid bg-light">
+<div class="container-fluid bg-light pb-5">
     <div class="row pt-5">
         <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 col-xl-1"></div>
         <div class="col-xs-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">
-            <div class="bg-white w-100 ml-0 mt-2 pl-0" style="height:100%;background: url('{{journeytext.image }}');background-repeat: no-repeat;background-size: cover;">
-                <div class="bg-primary w-75">
-                    <h1 class="text-white font-weight-bold text-wrap col-12 mb-5 pb-3" style="margin-top:5%;">Recent Activities</h1>
+            <div class="bg-white w-100 ml-0 mt-2 pl-0 pb-5 background-cover-photo" style="background-image: url('{{recenttext.image }}');height:80%;">
+                <div class="pt-2 w-75 gradient-primary-diag">
+                    <h1 class="text-white font-weight-bold text-wrap col-12 mb-5 pb-3" style="margin-top:15%;">{{ recenttext.text }}</h1>
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 row-flex row-nowrap bg-light">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 row-flex row-nowrap bg-light mt-2">
+            <iframe id="recent" src="{% url 'recent' %}"></iframe>
         </div>
+    </div>
+</div>
+<div class="container-fluid bg-primary pb-5">
+    <div class="row">
+        <h1 class="text-white ml-5 mt-5 font-weight-bold">{{ objectivetext }}</h1>
+    </div>
+    <div class="container">
+        <ul style="list-style:none;">
+        {% for objective in objectives %}
+            <li class="text-light mt-5 text-justify"> <i class="fas fa-check mr-4"></i>{{ objective.point }}</li>
+        {% endfor %}
+        </ul>
     </div>
 </div>
 {% endblock %}

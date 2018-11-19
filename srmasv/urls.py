@@ -21,13 +21,11 @@ from django.conf.urls.static import static
 
 from . import views
 
-import navbar.urls
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(navbar.urls)),
-    url(r'^s3direct/', include('s3direct.urls')),
-    path('', views.navbar, name="blogs"),
+    path('', include('navbar.urls')),
+    path('blogs/', include('blogs.urls')),
+    path('s3direct/', include('s3direct.urls')),
     path('', views.navbar, name="about"),
     path('', views.navbar, name="team"),
     path('', views.navbar, name="projects"),

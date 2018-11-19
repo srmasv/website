@@ -27,6 +27,7 @@ class HomeText(models.Model):
     header = models.CharField(max_length=255)
     body = models.TextField()
     subtitle = models.TextField()
+    background = S3DirectField(dest='media')
 
     def __str__(self):
         return self.header
@@ -68,7 +69,7 @@ class JourneyText(models.Model):
 
     def clean(self):
         if JourneyText.objects.exists() and not self.pk:
-            raise ValidationError("Only one instance of HomeText can be made.")
+            raise ValidationError("Only one instance of JourneyText can be made.")
 
 class DomainText(models.Model):
     icon = models.CharField(max_length=15)
@@ -82,3 +83,38 @@ class DomainText(models.Model):
     class Meta:
         verbose_name = "Domain Info"
         verbose_name_plural = "Domain Infos"
+
+class Recent(models.Model):
+    text = models.CharField(max_length=30)
+    image = S3DirectField(dest="media")
+
+    def clean(self):
+        if Recent.objects.exists() and not self.pk:
+            raise ValidationError("Only one instance of RecentText can be made.")
+
+    def __str__(self):
+        return self.text
+
+class ObjectiveText(models.Model):
+    text = models.CharField(max_length=100)
+
+    def clean(self):
+        if ObjectiveText.objects.exists() and not self.pk:
+            raise ValidationError("Only one instance of Objective Text can be made.")
+
+    def __str__(self):
+        return self.text
+
+class Objective(models.Model):
+    point = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.point
+
+class Logo(models.Model):
+    logo = S3DirectField(dest="media")
+    favicon = S3DirectField(dest="media")
+
+    def clean(self):
+        if Logo.objects.exists() and not self.pk:
+            raise ValidationError("Only one instance of Logo can be made.")

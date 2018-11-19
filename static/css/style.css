@@ -1,0 +1,65 @@
+.gradient-primary-half-1 {
+    background-image: linear-gradient(#037dff,#3949AB);
+}
+
+.gradient-primary-half-2 {
+    background-image: linear-gradient(#3949AB, #303F9F);
+}
+
+.gradient-primary {
+    background-image: linear-gradient(#037dff, #303F9F);
+}
+
+.gradient-primary-diag {
+    background-image: linear-gradient(to bottom right,#037dff,#303F9F);
+}
+
+#background-carousel {
+    background-color: #303F9F;
+    height:50px;
+    background-position: bottom;
+    background-repeat:repeat-x;
+}
+
+#carousel {
+    margin-top:-25%;
+}
+
+#carousel-div {
+    box-shadow: 0 0 40px -5px black;
+}
+
+#journeytext-div {
+    margin-top: 10%;
+}
+
+.background-cover-photo {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#journey-heading {
+    margin-top:15%;
+}
+
+#journey-image {
+    height:100%;
+}
+
+#recent-label {
+    margin-top:5%;
+}
+
+#recent {
+    width:100%;
+    height:300px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.domain-icon {
+    width:3em;
+    height:3em;
+    padding-top:0.5em;
+    border-radius:50%;
+}

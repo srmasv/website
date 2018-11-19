@@ -1,0 +1,25 @@
+{% extends 'header.html'%}
+
+{% block content %}
+<style>
+    body {background-color: #f8f9fa;}
+</style>
+<div class="container-fluid flex-row flex-nowrap">
+        <div class="row gradient-primary" id="card-row" style="height:150px;width:1360px;border-radius:30px 30px 0 0;"></div>
+        <div class="row flex-nowrap" style="margin-top:-100px;">
+        {% for blog in blogs %}
+        <div class="col-xs-8 col-sm-4">
+            <div class="card bg-white" style="border-radius: 0;height:320px;width:230px;">
+              <img class="card-img-top" style="width:90%;margin:0 auto;border-radius:0;margin-top:5%;height:135px;" src="{{ blog.photo }}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{ blog.heading }}</h5>
+                <p class="card-text">{{ blog.short_text }}</p>
+                <a href="#" class="btn btn-primary">Read more</a>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'navbar.apps.NavBarConfig',
+    'blogs.apps.BlogsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -138,6 +139,10 @@ S3DIRECT_DESTINATIONS = {
     },
     'media': {
         'key': 'media/',
+    },
+    'blog': {
+        'key': 'media/blog/',
+        'allowed': ['image/jpeg', 'image/png'],
     }
 }
 
