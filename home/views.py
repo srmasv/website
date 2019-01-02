@@ -42,3 +42,6 @@ def home(request):
     params["objectives"] = get_objectives()
     params["logo"] = get_logo()
     return render(request, 'home.html', params)
+
+def timeline(request):
+    return render(request, 'timeline.html')

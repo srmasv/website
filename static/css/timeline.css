@@ -1,0 +1,113 @@
+.pastEvent {
+    stroke: #167ffb;
+    stroke-width: 3;
+    fill: #FFFFFF;
+    cx: 6.5;
+    cy: 10;
+    r: 5;
+}
+
+.futureEvent {
+    cx:6;
+    cy:10;
+    r:6;
+    fill: #A2A4A3;
+    opacity: 0.37;
+}
+
+.event>svg {
+    height:20px;
+    width:13px;
+}
+
+.line {
+    height:5px;
+    width:200px;
+}
+
+.pastLine {
+    stroke:#167ffb;
+    stroke-width:5;
+}
+
+.futureLine {
+    stroke:#A2A4A3;
+    stroke-width:5;
+    opacity: 0.37;
+}
+
+.timeline {
+    display:inline-flex;
+    align-items: center;
+    height: 300px;
+}
+
+.event {
+    position: relative;
+}
+
+.eventBubble {
+    position: absolute;
+    width: 212px;
+    height: 95px;
+    left: -170px;
+}
+
+.eventTop {
+    top: -60px;
+}
+
+.eventBottom {
+    top: 20px;
+}
+
+.eventTime {
+    display: flex;
+}
+
+.dayDigit {
+    font-size: 27px;
+    margin-left: 10px;
+    font-weight: bolder;
+}
+
+.dateTitle {
+    margin-left: 5px;
+}
+
+.monthYear {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.day {
+    font-weight: 600;
+    line-height: 10px;
+    font-size: 9px;
+    display: block;
+}
+
+.eventTitle>a {
+    color: #000000;
+    font-size: 15px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    margin-left: 0;
+    margin-top: -2px;
+}
+
+.futureGray{
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+
+}
+
+.futureOpacity{
+    -webkit-filter: opacity(.3);
+    filter: opacity(.3);
+
+}

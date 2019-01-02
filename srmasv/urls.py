@@ -23,7 +23,7 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('navbar.urls')),
+    path('', include('home.urls')),
     path('blogs/', include('blogs.urls')),
     path('s3direct/', include('s3direct.urls')),
     path('', views.navbar, name="about"),

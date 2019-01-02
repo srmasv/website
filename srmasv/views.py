@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from navbar.models import NavItem
+from home.models import NavItem
 
 def get_all_navitems():
     return NavItem.objects.order_by('position')

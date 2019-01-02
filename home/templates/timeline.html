@@ -1,0 +1,178 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block title %}
+SRMASV | Timeline 2018-2019
+{% endblock %}
+
+{% block customstyles %}
+<link rel="stylesheet" href="{% static 'css/timeline.css' %}">
+{% endblock %}
+
+{% block content %}
+<body>
+    <h1 class="text-primary" style="font-weight:bold;text-align:center;">Timeline</h1>
+    <div class="timeline">
+
+        <div class="event">
+            <svg>
+                <circle class="pastEvent"/>
+            </svg>
+        </div>
+
+        <svg class="line">
+            <line class="pastLine" x1="0" y1="5" x2="200" y2="5" />
+        </svg>
+
+        <div class="event">
+            <div class="eventBubble eventTop">
+                <div class="eventTime">
+                    <span class="dayDigit">17</span>
+                    <div class="dateTitle">
+                        <span class="monthYear">April 2016</span>
+                        <span class="day">Thursday</span>
+                    </div>
+                </div>
+                <span class="eventTitle">
+                    <a href="#">Profile Created</a>
+                </span>
+            </div>
+            <svg>
+                <circle class="pastEvent" />
+            </svg>
+        </div>
+
+        <svg class="line">
+            <line class="pastLine" x1="0" y1="5" x2="200" y2="5" />
+        </svg>
+
+        <div class="event">
+            <div class="eventBubble eventBottom">
+                <div class="eventTime">
+                    <span class="dayDigit">17</span>
+                    <div class="dateTitle">
+                        <span class="monthYear">April 2016</span>
+                        <span class="day">Thursday</span>
+                    </div>
+                </div>
+                <span class="eventTitle">
+                    <a href="#">Phone Interview</a>
+                </span>
+            </div>
+            <svg>
+                <circle class="pastEvent" />
+            </svg>
+        </div>
+
+        <svg class="line">
+            <line class="pastLine" x1="0" y1="5" x2="200" y2="5" />
+        </svg>
+
+        <div class="event">
+            <div class="eventBubble eventTop">
+                <div class="eventTime">
+                    <span class="dayDigit">17</span>
+                    <div class="dateTitle">
+                        <span class="monthYear">April 2016</span>
+                        <span class="day">Thursday</span>
+                    </div>
+                </div>
+                <span class="eventTitle">
+                    <a href="#">Profile Created</a>
+                </span>
+            </div>
+            <svg>
+                <circle class="pastEvent" />
+            </svg>
+        </div>
+
+        <svg class="line">
+            <line class="pastLine" x1="0" y1="5" x2="200" y2="5" />
+        </svg>
+
+        <div class="event">
+            <div class="eventBubble eventBottom">
+                <div class="eventTime">
+                    <span class="dayDigit">17</span>
+                    <div class="dateTitle">
+                        <span class="monthYear">April 2016</span>
+                        <span class="day">Thursday</span>
+                    </div>
+                </div>
+                <span class="eventTitle">
+                    <a href="#">Phone Interview</a>
+                </span>
+            </div>
+            <svg>
+                <circle class="pastEvent" />
+            </svg>
+        </div>
+
+        <svg class="line">
+            <line class="futureLine futureOpacity" x1="0" y1="5" x2="200" y2="5" />
+        </svg>
+
+        <div class="event futureGray">
+            <div class="eventBubble eventTop futureOpacity">
+                <div class="eventTime">
+                    <span class="dayDigit">05</span>
+                    <div class="dateTitle">
+                        <span class="monthYear">May 2016</span>
+                        <span class="day">Tuesday</span>
+                    </div>
+                </div>
+                <span class="eventTitle">
+                    <a href="#">Anticipated Hire</a>
+                </span>
+            </div>
+            <svg height=20 width=12>
+                <circle class="futureEvent" />
+            </svg>
+        </div>
+
+        <svg class="line">
+            <line class="futureLine futureOpacity" x1="0" y1="5" x2="200" y2="5" />
+        </svg>
+
+        <div class="event futureGray">
+            <div class="eventBubble eventBottom futureOpacity">
+                <div class="eventTime">
+                    <span class="dayDigit">05</span>
+                    <div class="dateTitle">
+                        <span class="monthYear">May 2016</span>
+                        <span class="day">Tuesday</span>
+                    </div>
+                </div>
+                <span class="eventTitle">
+                    <a href="#">Anticipated Hire</a>
+                </span>
+            </div>
+            <svg height=20 width=12>
+                <circle class="futureEvent" />
+            </svg>
+        </div>
+
+        <svg class="line">
+            <line class="futureLine futureOpacity" x1="0" y1="5" x2="200" y2="5" />
+        </svg>
+
+        <div class="event futureGray">
+            <div class="eventBubble eventTop futureOpacity">
+                <div class="eventTime">
+                    <span class="dayDigit">05</span>
+                    <div class="dateTitle">
+                        <span class="monthYear">May 2016</span>
+                        <span class="day">Tuesday</span>
+                    </div>
+                </div>
+                <span class="eventTitle">
+                    <a href="#">Anticipated Hire</a>
+                </span>
+            </div>
+            <svg height=20 width=12>
+                <circle class="futureEvent" />
+            </svg>
+        </div>
+
+    </div>
+{% endblock %}

@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'navbar.apps.NavBarConfig',
+    'home.apps.HomeConfig',
     'blogs.apps.BlogsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
